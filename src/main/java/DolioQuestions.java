@@ -10,9 +10,12 @@ public class DolioQuestions {
     //Array1 : [Python, JAVA, PHP, C#, C++, SQL]
     //Array2 : [MySQL, SQL, SQLite, Oracle, PostgreSQL, DB2, JAVA]
     //Common element is : [JAVA, SQL]
+
     public ArrayList<String> findCommon(String[] arr1, String[] arr2){
         ArrayList<String> answer = new ArrayList<>();
+        for (int i=0; i<arr1.length; i++){
 
+        }
 
         return answer;
     }
@@ -30,7 +33,7 @@ public class DolioQuestions {
             if (arr[i] >= largest){
                 secondLargest = largest;
                 largest = arr[i];
-            } else if (arr[1] > secondLargest){
+            } else if (arr[i] > secondLargest){
                 secondLargest = arr[i];
             }
         }
