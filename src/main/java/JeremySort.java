@@ -1,24 +1,45 @@
 /**
- * Get comfortable with bubble sort for situations like this
+ * Get comfortable with bubble sort & binary search
  */
 
 public class JeremySort {
 
-//    int [8, 4, 5, 3, 1, 2, 6, 7, 10, 9]
-//    int [4,]
-//    int[] of 10 various numbers:  sort them lowest to highest
-//
-//    public int[] sortMe(int[] input){
-//        int[] answer = new int[10].clone(input);
-//        for (int i=0; i<answer.length-1; i++){
-//            If (answer[i] > answer[i+1]){
-//                answer[i] = answer[i+1];
-//            }
-//        }
-//
-//        //move smaller one to left
-//
-//        Return answer;
-//    }
+    public int[] bubbleSortMe(int[] input){
+        for (int i=0; i<input.length-1; i++){
+            for (int j=0; j< input.length-1-i; j++){
+                if (input[j] > input[j+1]){
+                    int temp = input[j];
+                    input[j] = input[j+1];
+                    input[j+1] = temp;
+                }
+            }
+        }
+        return input;
+    }
+
+    public int[] optimizedBubbleSortMe(int[] input){
+        boolean swapped;
+        for (int i=0; i<input.length-1; i++){
+            swapped = false;
+            for (int j=0; j<input.length-1-i; j++){
+                if (input[j] > input[j+1]){
+                    int temp = input[j];
+                    input[j] = input[j+1];
+                    input[j+1] = temp;
+                    swapped = true;
+                }
+            }
+            if (!swapped) break;
+        }
+        return input;
+    }
+
+
+    /**
+     * useful for searching an array that is already sorted from smallest to greatest value
+     */
+    public int[] binarySearchMe(int[] input){
+        return input;
+    }
 
 }
