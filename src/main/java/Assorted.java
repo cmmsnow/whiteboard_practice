@@ -119,23 +119,29 @@ public class Assorted {
         return counter;
     }
 
-    public boolean isDuplicate(int inputNum, int[] inputArr){
+    public boolean isInArray(int inputNum, int[] inputArr){
         int counter = 0;
+        System.out.println(inputArr);
         for (int i=0; i<inputArr.length; i++){
-            if (inputArr[i] == inputNum) counter++;
+            if ((inputArr[i] == inputNum)) counter++;  //  wont work, I believe, due to nulls
         }
-        if (counter > 1) return true;
+        if (counter > 0) return true;
         return false;
     }
 
-//    public int[] removeDuplicates(int[] input){  // still working on this
-//        int[] dupeCountAr = createOccurenceCounterArray(input);
-//        int numOfDupes = getNumOfDupesFromOccurrenceCounter(dupeCountAr);
-//        int[] answer = new int[input.length - numOfDupes];
-//        for (int i=0; i<input.length; i++){
-//            if (dupeCountAr[i] )
-//        }
-//    }
+    public int[] removeDuplicates(int[] input){  // still working on this
+        int[] dupeCountAr = createOccurenceCounterArray(input);
+        int numOfDupes = getNumOfDupesFromOccurrenceCounter(dupeCountAr);
+        int[] answer = new int[input.length - numOfDupes];
+        int k=0;
+        for (int i=0; i<input.length; i++){
+            if (!isInArray(input[i], answer)){    //  wont work because array elements are not initialized, I believe
+                answer[k] = input[i];
+                k++;
+            }
+        }
+        return answer;
+    }
 
 
 //    public int[] removeDuplicates(int[] array) {  // Shu's 1st answer // does not work

@@ -51,6 +51,54 @@ public class AssortedTest {
     }
 
     @Test
+    public void removeDuplicatesTest1(){
+        int[] expected = new int[]{5, 7, 3, 4};
+        int[] actual = assorted.removeDuplicates(dupes1);
+
+        int expected1 = expected[0];
+        int expected2 = expected[1];
+        int expected3 = expected[2];
+        int expected4 = expected[3];
+        int expectedLength = expected.length;
+
+        int actual1 = actual[0];
+        int actual2 = actual[1];
+        int actual3 = actual[2];
+        int actual4 = actual[3];
+        int actualLength = actual.length;
+
+        Assert.assertEquals(expectedLength, actualLength);
+        Assert.assertEquals(expected1, actual1);
+        Assert.assertEquals(expected2, actual2);
+        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected4, actual4);
+    }
+
+    @Test
+    public void removeDuplicatesTest2(){
+        int[] expected = new int[]{1, 2, 3, 0};
+        int[] actual = assorted.removeDuplicates(dupes2);
+
+        int expected1 = expected[0];
+        int expected2 = expected[1];
+        int expected3 = expected[2];
+        int expected4 = expected[3];
+        int expectedLength = expected.length;
+
+        int actual1 = actual[0];
+        int actual2 = actual[1];
+        int actual3 = actual[2];
+        int actual4 = actual[3];
+        int actualLength = actual.length;
+
+        Assert.assertEquals(expectedLength, actualLength);
+        Assert.assertEquals(expected1, actual1);
+        Assert.assertEquals(expected2, actual2);
+        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected4, actual4);
+    }
+
+    @Test
     public void removeDupesByShuTest1(){
         int[] expected = new int[]{3, 4, 5, 7};
         int[] actual = assorted.removeDuplicatesByShu(dupes1);
