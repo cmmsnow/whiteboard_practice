@@ -74,28 +74,8 @@ public class Assorted {
 
     /**
      * Given an int array, return an array with duplicates removed
-     *
-     * public int[] removeDuplicates(int[] array){  SHU'S ANSWER
-     * //{1,1,2, ,5,3, 5}
-     * int count = 0;
-     * for(int i=0; i< array.length; i++){ //1
-     * for(int j=0; j< array.length; j++){
-     * if((array[i] == array[j]) && (i != j)){
-     * count++;
-     * }
-     * }
-     * int [] result = new int [array.length- count];
-     * int k = 0;
-     * for(int i=0; i< result.length; i++){
-     * for(int j=0; j< array.length; j++){
-     * if(array[i] != array [j]){
-     * result [k] = array[i];
-     * k++;
-     * }
-     * } return result;
-     * }
      */
-    //-----------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------
 //    public int[] createOccurenceCounterArray(int[] input){  // original approach eh
 //        int[] answer = new int[input.length];
 //        for (int i=0; i<input.length; i++){
@@ -130,7 +110,7 @@ public class Assorted {
 //        return false;
 //    }
 
-    //------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------
     public int getNumOfExtraTimesElemOccurs(int index, int[] input){
         int counter = 0;
         for (int i=0; i<input.length; i++){
@@ -163,7 +143,7 @@ public class Assorted {
         }
         return answer;
     }
-    //-------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------
 
     //char[] charArray = new char[]{'a', 'c', 'b', 'a', 'c', 'd', 'x'};  // Peter O's answer for similar problem
 //    public static void main(String args[] ) {
@@ -199,7 +179,7 @@ public class Assorted {
         return returnArray;
     }
 
-//-------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
     public int[] removeDuplicatesByShu(int[] array) {  // Shu's 2nd answer -- this removes dupes AND sorts the array
             HashMap<Integer, Integer> countNumbers = new HashMap<>();
         for (int i = 0; i < array.length; i++) {
