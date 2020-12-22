@@ -76,7 +76,7 @@ public class Assorted {
      * Given an int array, return an array with duplicates removed
      */
     //------------------------------------------------------------------------------------------------------------------
-//    public int[] createOccurenceCounterArray(int[] input){  // original approach eh
+//    public int[] createOccurenceCounterArray(int[] input){             // original approach ...eh
 //        int[] answer = new int[input.length];
 //        for (int i=0; i<input.length; i++){
 //            int counter = 1;
@@ -104,81 +104,71 @@ public class Assorted {
 //        int counter = 0;
 //        System.out.println(inputArr);
 //        for (int i=0; i<inputArr.length; i++){
-//            if ((inputArr[i] == inputNum)) counter++;  //  wont work because array elements are not initialized, I believe
+//            if ((inputArr[i] == inputNum)) counter++;    // wont work because array elements are not initialized, I believe
 //        }
 //        if (counter > 0) return true;
 //        return false;
 //    }
 
     //------------------------------------------------------------------------------------------------------------------
-    public int getNumOfExtraTimesElemOccurs(int index, int[] input){
-        int counter = 0;
-        for (int i=0; i<input.length; i++){
-            if ((index != i) && (input[index] == input[i])) counter++;
+//    public int getNumOfExtraTimesElemOccurs(int index, int[] input){       // 2nd approach ...also did not work
+//        int counter = 0;
+//        for (int i=0; i<input.length; i++){
+//            if ((index != i) && (input[index] == input[i])) counter++;
+//        }
+//        return counter;
+//    }
+//
+//    public int getNumOfOccurrencesInArray(int[] input){
+//        int counter = 0;
+//        for (int i=0; i<input.length; i++){
+//            counter += getNumOfExtraTimesElemOccurs(i, input);
+//        }
+//        return counter;
+//    }
+//
+//    public int[] removeDuplicates(int[] input){  // still working on this
+//        int numOfDupes = getNumOfOccurrencesInArray(input);
+//        int[] answer = new int[input.length - numOfDupes];
+//        int k=0;
+//        for (int i=0; i<input.length; i++){
+//            boolean alreadyInThere = false;
+//            for (int j=i; j>=0; j--){
+//                if (answer[j] == input[i]) alreadyInThere = true;
+//            }
+//            if (!alreadyInThere){
+//                answer[k] = input[i];
+//                k++;
+//            }
+//        }
+//        return answer;
+//    }
+    //------------------------------------------------------------------------------------------------------------------
+    public int[] removeDuplicates(int[] input){
+        int[] answerArr = new int[]{input[0]};
+        for (int i=1; i<input.length; i++){
+            if (!isPresent(input[i], answerArr)){                 //check if element already in answer array
+                answerArr = addIntToArray(input[i], answerArr);   //if not, add it
+            }
         }
-        return counter;
+        return answerArr;
     }
 
-    public int getNumOfOccurrencesInArray(int[] input){
-        int counter = 0;
-        for (int i=0; i<input.length; i++){
-            counter += getNumOfExtraTimesElemOccurs(i, input);
+    public int[] addIntToArray(int element, int[] array){
+        int[] answer = new int[array.length+1];
+        for (int i=0; i<array.length; i++){
+            answer[i] = array[i];
         }
-        return counter;
-    }
-
-    public int[] removeDuplicates(int[] input){  // still working on this
-        int numOfDupes = getNumOfOccurrencesInArray(input);
-        int[] answer = new int[input.length - numOfDupes];
-        int k=0;
-        for (int i=0; i<input.length; i++){
-            boolean alreadyInThere = false;
-            for (int j=i; j>=0; j--){
-                if (answer[j] == input[i]) alreadyInThere = true;
-            }
-            if (!alreadyInThere){
-                answer[k] = input[i];
-                k++;
-            }
-        }
+        answer[answer.length-1] = element;
         return answer;
     }
-    //------------------------------------------------------------------------------------------------------------------
 
-    //char[] charArray = new char[]{'a', 'c', 'b', 'a', 'c', 'd', 'x'};  // Peter O's answer for similar problem
-//    public static void main(String args[] ) {
-//        char[] newCharArr = removeDuplies(charArray);
-//        for(char c : newCharArr) {
-//            System.out.println(String.valueOf(c));
-//        }
-//    }
-    public char[] removeDuplies(char[] arr) {
-        boolean[] flags = new boolean[128];
-        char[] newArr = new char[1];
-        for(char c : arr) {
-            if(checkMap(c, flags)) {
-                newArr = addChar(newArr, c);
-            }
+    public boolean isPresent(int value, int[] input){
+        for (int i=0; i<input.length; i++){
+            if (input[i] == value) return true;
         }
-        return newArr;
+        return false;
     }
-    public boolean checkMap(char aChar, boolean[] flags) {
-        if(flags[aChar] == false) {
-            flags[aChar] = true;
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public char[] addChar(char[] arr, char aChar) {
-        char[] returnArray = new char[arr.length+1];
-        for(int i = 0; i < arr.length; i++) {
-            returnArray[i] = arr[i];
-        }
-        returnArray[returnArray.length-1] = aChar;
-        return returnArray;
-    }
-
 //----------------------------------------------------------------------------------------------------------------------
     public int[] removeDuplicatesByShu(int[] array) {  // Shu's 2nd answer -- this removes dupes AND sorts the array
             HashMap<Integer, Integer> countNumbers = new HashMap<>();
