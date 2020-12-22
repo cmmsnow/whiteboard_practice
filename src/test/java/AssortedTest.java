@@ -19,7 +19,7 @@ public class AssortedTest {
         christine = "christine";
         shubham = "Shubham";
         dupes1 = new int[]{5, 5, 7, 3, 4, 3};
-        dupes2 = new int[]{1, 2, 1, 3, 2, 3, 0};
+        dupes2 = new int[]{1, 2, 1, 1, 3, 2, 3, 0};
     }
 
     @Test
