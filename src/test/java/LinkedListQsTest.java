@@ -5,12 +5,12 @@ import org.junit.Test;
 import java.util.LinkedList;
 
 public class LinkedListQsTest {
-    LikedListQs likedListQs;
+    LinkedListQs linkedListQs;
     LinkedList linkedList1;
 
     @Before
     public void setup(){
-        likedListQs = new LikedListQs();
+        linkedListQs = new LinkedListQs();
         linkedList1 = new LinkedList();
         linkedList1.add(4);
         linkedList1.add(2);
@@ -21,7 +21,7 @@ public class LinkedListQsTest {
     @Test
     public void testCountNodes(){
         int expected = 4;
-        int actual = likedListQs.countNodes(linkedList1);
+        int actual = linkedListQs.countNodes(linkedList1);
         Assert.assertEquals(expected, actual);
     }
 
@@ -34,7 +34,7 @@ public class LinkedListQsTest {
     @Test
     public void testGetElementAt(){
         Object expected = 3;
-        Object actual = likedListQs.getElementAt(linkedList1, 2);
+        Object actual = linkedListQs.getElementAt(linkedList1, 2);
         Assert.assertEquals(expected, actual);
     }
 }

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 
 
-public class LikedListQs {
+public class LinkedListQs {
 
     /**
      * count the nodes
