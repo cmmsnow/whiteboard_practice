@@ -38,8 +38,16 @@ public class JeremySort {
     /**
      * useful for searching an array that is already sorted from smallest to greatest value
      */
-    public int[] binarySearchMe(int[] input){
-        return input;
+
+    public boolean binarySearch(int array[], int key, int left, int right){
+        int mid = left + (right-left)/2;
+        if (key < array[mid])
+            return binarySearch(array, key, left, mid-1);
+        else if (key > array[mid])
+            return binarySearch(array, key, mid+1, right);
+        else if (key == array[mid])
+            return true; // Found
+        return false; // Not Found
     }
 
 }

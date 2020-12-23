@@ -6,6 +6,8 @@ public class JeremySortTest {
     JeremySort jeremySort;
     int[] arr1;
     int[] arr2;
+    int[] sorted1;
+    int[] sorted2;
 
     public boolean isSorted(int[] arr1) {
         for (int i = 0; i < arr1.length - 1; i++) {
@@ -20,6 +22,8 @@ public class JeremySortTest {
         jeremySort = new JeremySort();
         arr1 = new int[] {5, 4, 3, 6, 7};
         arr2 = new int[] {-6, -8, -4, 1, -1};
+        sorted1 = new int[]{4, 5, 6, 7, 8, 9, 10};
+        sorted2 = new int[]{-9, -8, -7, -6, -5};
     }
 
     @Test
@@ -62,7 +66,11 @@ public class JeremySortTest {
     }
 
     @Test
-    public void binarySearchMeTest1(){}
+    public void binarySearchMeTest1(){
+        boolean expected = true;
+        //boolean actual = jeremySort.binarySearch(sorted1, );
+        //Assert.assertEquals(expected, actual);
+    }
 
     @Test
     public void binarySearchMeTest2(){}
