@@ -1,6 +1,7 @@
 import java.util.HashMap;
 
 public class Assorted {
+//----------------------------------------------------------------------------------------------------------------------
 /**
  * AddEmAll:    Jay's Mock Whiteboard
  *              Given: an array of numbers
@@ -51,7 +52,7 @@ public class Assorted {
 
         return sum;
     }
-
+//----------------------------------------------------------------------------------------------------------------------
     /**
      * Given: String with only alphabetic characters
      * Return: highest character
@@ -71,79 +72,11 @@ public class Assorted {
 
         return answer;
     }
-
+//----------------------------------------------------------------------------------------------------------------------
     /**
      * Given an int array, return an array with duplicates removed
      */
-    //------------------------------------------------------------------------------------------------------------------
-//    public int[] createOccurenceCounterArray(int[] input){             // original approach ...eh
-//        int[] answer = new int[input.length];
-//        for (int i=0; i<input.length; i++){
-//            int counter = 1;
-//            for (int j=0; j<input.length; j++){
-//                if (i != j){
-//                    if (input[i] == input[j]){
-//                        counter++;
-//                    }
-//                }
-//            }
-//            answer[i] = counter;
-//        }
-//        return answer;
-//    }
 
-//    public int getNumOfDupesFromOccurrenceCounter(int[] input){
-//        int counter = 0;
-//        for (int i=0; i<input.length; i++){
-//            counter += (input[i] - 1);
-//        }
-//        return counter;
-//    }
-
-//    public boolean isInArray(int inputNum, int[] inputArr){
-//        int counter = 0;
-//        System.out.println(inputArr);
-//        for (int i=0; i<inputArr.length; i++){
-//            if ((inputArr[i] == inputNum)) counter++;    // wont work because array elements are not initialized, I believe
-//        }
-//        if (counter > 0) return true;
-//        return false;
-//    }
-
-    //------------------------------------------------------------------------------------------------------------------
-//    public int getNumOfExtraTimesElemOccurs(int index, int[] input){       // 2nd approach ...also did not work
-//        int counter = 0;
-//        for (int i=0; i<input.length; i++){
-//            if ((index != i) && (input[index] == input[i])) counter++;
-//        }
-//        return counter;
-//    }
-//
-//    public int getNumOfOccurrencesInArray(int[] input){
-//        int counter = 0;
-//        for (int i=0; i<input.length; i++){
-//            counter += getNumOfExtraTimesElemOccurs(i, input);
-//        }
-//        return counter;
-//    }
-//
-//    public int[] removeDuplicates(int[] input){  // still working on this
-//        int numOfDupes = getNumOfOccurrencesInArray(input);
-//        int[] answer = new int[input.length - numOfDupes];
-//        int k=0;
-//        for (int i=0; i<input.length; i++){
-//            boolean alreadyInThere = false;
-//            for (int j=i; j>=0; j--){
-//                if (answer[j] == input[i]) alreadyInThere = true;
-//            }
-//            if (!alreadyInThere){
-//                answer[k] = input[i];
-//                k++;
-//            }
-//        }
-//        return answer;
-//    }
-    //------------------------------------------------------------------------------------------------------------------
     public int[] removeDuplicates(int[] input){
         int[] answerArr = new int[]{input[0]};
         for (int i=1; i<input.length; i++){
@@ -187,5 +120,39 @@ public class Assorted {
         }
         return result;
     }
+//----------------------------------------------------------------------------------------------------------------------
+/**
+ * Check if 2 strings are permutations of each other.
+ * (Example:  "listen" and "silent"  <-- would return true)
+ */
 
+    public String sortString(String input){
+        char[] stringArr = input.toCharArray();
+        for (int i=0; i<stringArr.length-1; i++){
+            boolean swapped = false;
+            for (int j=0; j<stringArr.length-1-i; j++){
+                if (stringArr[j] > stringArr[j+1]){
+                    char temp = stringArr[j];
+                    stringArr[j] = stringArr[j+1];
+                    stringArr[j+1] = temp;
+                    swapped = true;
+                }
+            }
+            if (!swapped) break;
+        }
+        String sorted = "";
+        for (char c : stringArr){
+            sorted += c;
+        }
+        return sorted;
+    }
+
+    public boolean arePermutations(String input1, String input2){
+        if (input1.length() != input2.length()){
+            return false;
+        } else {
+            if (sortString(input1).equals(sortString(input2))) return true;
+        }
+        return false;
+    }
 }

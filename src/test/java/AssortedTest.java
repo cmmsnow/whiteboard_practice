@@ -145,4 +145,36 @@ public class AssortedTest {
         Assert.assertEquals(expected3, actual3);
         Assert.assertEquals(expected4, actual4);
     }
+
+    @Test
+    public void sortStringTest1(){
+        String expected = "cehiinrst";
+        String actual = assorted.sortString(christine);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sortStringTest2(){
+        String expected = "Sabhhmu";
+        String actual = assorted.sortString(shubham);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void arePermutationsTest1(){
+        boolean given = assorted.arePermutations(christine, shubham);
+        Assert.assertFalse(given);
+    }
+
+    @Test
+    public void arePermutationsTest2(){
+        boolean given = assorted.arePermutations(christine, "stenichir");
+        Assert.assertTrue(given);
+    }
+
+    @Test
+    public void arePermutationsTest3(){
+        boolean given = assorted.arePermutations(christine, "stinichir");
+        Assert.assertFalse(given);
+    }
 }
