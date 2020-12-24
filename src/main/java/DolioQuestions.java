@@ -14,9 +14,13 @@ public class DolioQuestions {
     public ArrayList<String> findCommon(String[] arr1, String[] arr2){
         ArrayList<String> answer = new ArrayList<>();
         for (int i=0; i<arr1.length; i++){
-
+            for (int j=0; j< arr2.length; j++){
+                if (arr1[i].equals(arr2[j])){
+                    answer.add(arr1[i]);
+                    break;
+                }
+            }
         }
-
         return answer;
     }
 
